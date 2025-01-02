@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">
+            
+            {%if user.is_authenticated %}
+           
+
+            <a class="nav-link btn btn-primary" href="/add_post/">Add Post</a>
+
+
+
+            {%else%}
+            <p>You are not logged in.</p>
+            <a href="{% url 'register' %}">Register here</a></p>
+
+
+
+
+            {%endif%}
+
+
+
+            
+        </h1>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<div class="container mt-4">
+    <div class="row">
+        {% for post in object_list %}
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{% url 'article-details' post.pk %}" class="text-decoration-none">{{ post.title }}</a>
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ post.author.email }}</h6></br>
+                    <h6 class="card-subtitle mb-2 text-muted"> {{post.categories}}</h6></br>
+                    
+                  
+                   
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+ 
+
+
+{% endblock %}
+

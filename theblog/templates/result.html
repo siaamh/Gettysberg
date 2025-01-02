@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Soccer Leagues</h1>
+    <ul class="list-group">
+        {% for league in data.data %}
+            <li class="list-group-item">
+                <strong>{{ league.name }}</strong>,
+                {{ league.country_name }},
+                {{leage.is_frinedly}}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

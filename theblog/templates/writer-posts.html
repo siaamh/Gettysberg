@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<!-- writer_posts.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Writer's Posts</title>
+</head>
+<body>
+    <h1>Posts by {{ writer_posts.0.author }}</h1>
+    <ul>
+        {% for post in writer_posts %}
+        <li>
+            <a href="{% url 'article-details' post.pk %}">{{ post.title }}</a>
+            <p>{{ post.content|truncatewords:30 }}</p>
+            <small>Published on {{ post.published_date }}</small>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
+
+
+
+{% endblock %}

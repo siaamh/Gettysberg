@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{%if user.is_authenticated%}
+<div>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <h1>Are you sure?</h1>
+<button type="submit" class="btn btn-info">Yes</button>
+<a type="submit" class="btn btn-info" href="{%url 'article-details' post.id %}">No</a>
+</form>
+</div>
+{%else%}
+<div class="container mt-4 text-secondary">
+    <h1>You are not logged in. Please log in.</h1>
+</div>
+
+
+
+{%endif%}
+{% endblock %}
+
+            

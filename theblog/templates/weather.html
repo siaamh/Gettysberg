@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Weather Data</h1>
+    <ul class="list-group">
+        {% for data in weather_data %}
+            <li class="list-group-item">
+                <strong>{{ data.name }}</strong>: 
+                {{ data.weather.0.description }}, 
+                {{ data.main.temp }}°C,
+                <img src="http://openweathermap.org/img/wn/{{ data.weather.0.icon }}@2x.png" alt="Weather Icon" class="ml-auto">
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
