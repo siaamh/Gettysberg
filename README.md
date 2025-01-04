@@ -1,1 +1,1 @@
-This is my first project named Geettysberg.I made this as a practice to hone my "Python" and "Django" skills.This is an attempt to make a online blogging platform where individuals comes to express or consume some new thoughts getting a life by the keyboards. 
+This is my first project named Geettysberg.I made this as a practice to hone my "Python" and "Django" skills.This is an attempt to make a online blogging platform where individuals come to express or consume some new thoughts getting a life by the keyboards. 
