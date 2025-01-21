@@ -53,5 +53,10 @@ class city(models.Model):
 
     def __str__(self):
         return self.name
+class Follower(models.Model):
+    user = models.ForeignKey(Profile, related_name='following', on_delete=models.CASCADE)
+    follower = models.ForeignKey(Profile, related_name='followers', on_delete=models.CASCADE)
+    
 
-
+    def __str__(self):
+        return f"{self.follower} follows {self.user}"

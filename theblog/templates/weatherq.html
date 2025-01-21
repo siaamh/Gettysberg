@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+<form method="POST" action="{% url 'weatherq' %}">
+    {% csrf_token %}
+    <input type="text" placeholder="Enter your city" name="city"/>
+    <button type="submit">Enter</button>
+</form>
+</div>
+
+<div class="container mt-5">
+    <h1 class="text-center">Weather Data</h1>
+    {% if weather_data %}
+        <ul class="list-group">
+            <li class="list-group-item">
+                <strong>{{ weather_data.name }}</strong>: 
+                {{ weather_data.weather.0.description }}, 
+                {{ weather_data.main.temp }}°C,
+                <img src="http://openweathermap.org/img/wn/{{ weather_data.weather.0.icon }}@2x.png" alt="Weather Icon" class="ml-auto">
+            </li>
+        </ul>
+    {% elif error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+
+            

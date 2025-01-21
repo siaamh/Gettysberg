@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib import admin
-from .views import HomeView, ArticleDetailView, AddPostView,get_result,get_weather,DeletePost,EditPost, AddCommentView,CategoryListView ,CategoryView ,WriterPostsView , LikeView , WriterListsView
+from .views import HomeView, ArticleDetailView, AddPostView,get_result,get_weather,following,search_weather,DeletePost,EditPost, AddCommentView,CategoryListView ,CategoryView ,WriterPostsView , LikeView , WriterListsView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -19,6 +19,9 @@ urlpatterns = [
     path('article/<int:pk>/add_comment/',AddCommentView.as_view(), name="add-comment"),
     path('weather',get_weather,name="weather"),
     path('result',get_result,name="result"),
+    path('following/<int:pk>',following,name="following"),
+    path('weatherq',search_weather,name="weatherq"),
+    
 
     
 
