@@ -4,8 +4,8 @@ from settings import BASE_DIR
 
 
 SECRET_KEY = os.environ['SECRET']
-ALLOWED_HOST=[os.environment['WEBSITE_HOSTNAME']]
-CSRF_TRUSTED_ORIGIN=['https://'+[os.environment['WEBSITE_HOSTNAME']]]
+ALLOWED_HOST=[os.environ['WEBSITE_HOSTNAME']]
+CSRF_TRUSTED_ORIGIN=['https://'+[os.environ['WEBSITE_HOSTNAME']]]
 DEBUG = False
 
 MIDDLEWARE = [
@@ -22,7 +22,7 @@ MIDDLEWARE = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-connection_string=os.environment['AZURE_POSTGRESQL_CONNECTIONSTRING']
+connection_string=os.environ['AZURE_POSTGRESQL_CONNECTIONSTRING']
 
 conn_str_params = {pair.split('=')[0]: pair.split('=')[1] for pair in conn_str.split(' ')}
 
